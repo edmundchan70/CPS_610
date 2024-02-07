@@ -55,13 +55,13 @@ public class CalGPA {
 	}
 
 	private static Connection connectToDB() {
-		String user = "sys as sysdba";
-		String password = "233233123Lol";
-		String url = "jdbc:oracle:thin:@//localhost:1521/xe";
+		String user = "EDMUND";
+		String password = "233233123";
+		String url = "jdbc:oracle:thin:@//localhost:1521/orcl";
 		Properties props = new Properties();
 		props.setProperty("user", user);
 		props.setProperty("password", password);
-		props.setProperty("internal_logon", "SYSDBA");
+		//props.setProperty("internal_logon", "SYSDBA");
 		try {
 			return DriverManager.getConnection(url, props);
 		} catch (SQLException e) {
