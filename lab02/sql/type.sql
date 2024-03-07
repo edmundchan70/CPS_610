@@ -49,6 +49,7 @@ SELECT * FROM PROFESSOR ;
 -- 5 add new column INCOME  for simplicity choosen integer 
 ALTER TABLE professor 
 ADD INCOME INTEGER;  -- Add the INCOME column to the Professor table
+
 -- Update the income values for each professor
 UPDATE Professor
 SET INCOME = 
@@ -81,8 +82,7 @@ END;
 
 --8
 Create procedure findAverageIncome as  
-Begin
-    declare 
+Begin 
             numOfProfs Integer;
             totalIncome Integer;
     begin 
