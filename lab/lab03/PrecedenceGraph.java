@@ -1,15 +1,17 @@
-package lab03Code;
+package lab03;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.graph.SimpleDirectedGraph;
 import org.jgrapht.graph.SimpleGraph;
-
+import org.jgrapht.alg.cycle.CycleDetector;
 public class PrecedenceGraph {
 	
-	Graph<String, DefaultEdge> graph = new SimpleGraph<>(DefaultEdge.class);
+	SimpleDirectedGraph<String, DefaultEdge> graph = new SimpleDirectedGraph(DefaultEdge.class);
+	
 	ArrayList<Transaction> schedule = new ArrayList<Transaction>();
 	
 	public PrecedenceGraph(Schedule schedule) {
@@ -62,7 +64,17 @@ public class PrecedenceGraph {
         	}
         }
         result +="\n";
+        //Add cycle detector and say it's serializable 
+        if (checkCycle()) 
+        	result += "Cycle happened. This graph is not serializable";
+        else 
+        	result += "No Cycle detected. This graph is serializabnle";
         return result;
+	}
+	
+	public boolean checkCycle() {
+		CycleDetector cyDetector = new CycleDetector(graph);
+		return cyDetector.detectCycles();
 	}
 	
 	private void checkRule1(Transaction ti, String operation) {
@@ -116,4 +128,6 @@ public class PrecedenceGraph {
 			 }
 		}
 	}
+	
+
 }

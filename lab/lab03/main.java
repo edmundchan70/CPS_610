@@ -1,4 +1,4 @@
-package lab03Code;
+package lab03;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +17,6 @@ public class main {
         return schedules;
     }
 
-    
     
     public static ArrayList<ArrayList<Transaction>> permute(ArrayList<Transaction> transactions) {
         ArrayList<ArrayList<Transaction>> result = new ArrayList<>();
@@ -92,9 +91,10 @@ public class main {
         for(Schedule s : schedules) {
             PrecedenceGraph graph = new PrecedenceGraph(s);
             graph.checkAlgo();
+   
             System.out.println("In Schedule " + counter);
             System.out.println(graph);
-            
+            System.out.println();
             counter++;
         }
   

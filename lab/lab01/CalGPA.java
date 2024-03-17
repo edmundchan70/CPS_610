@@ -1,4 +1,4 @@
-package CPS_610.lab01;
+package lab01;
 
 import java.io.*;
 import java.sql.*;
@@ -15,7 +15,7 @@ public class CalGPA {
 		}
 		String  name; char grade; int credit;
 		Connection conn = connectToDB();
-		String stmt1 = "select g.grade, c.credit_hours \r\n"
+		String stmt1 = "select g.grade,	 c.credit_hours \r\n"
 				+ "FROM grade_report g join student s \r\n"
 				+ "on g.student_number = s.student_number\r\n"
 				+ "join section sec on g.section_identifier = sec.section_identifier\r\n"
