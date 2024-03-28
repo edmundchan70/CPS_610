@@ -41,7 +41,17 @@ public class Operation {
 	public int getValue() {
 		return value;
 	}
-
+	
+	public String toString() {
+		String result = "";
+		if(action == Action.WRITE) 
+			result += action + "(" + recordId + ", " +value + ")";
+		else if (action == Action.READ)
+			result += action + "(" + recordId + ")";
+		else 
+			result += "COMMIT";
+		return result;
+	}
  
 	
 }
